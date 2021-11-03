@@ -44,9 +44,12 @@ Use the copy function below to do the following:
   1. receive an array as a parameter - you will pass in originalFlavors as an argument when the function is invoked.
   2. Return a copy of the received array  
 */
-
-function copy(/*your code here*/){
+//take 1 parameter - you call it anything but its holding the place for the array you will pass in your argument
+function copy(array){
   /*your code here*/
+  let newarr = [...array];
+  return newarr
+
 }    
 
 
@@ -63,9 +66,15 @@ Confirm that an array is exactly 31 flavors. Your function should accept:
 For Example: is31Flavors(originalFlavors) will return true if your code is working properly
 */
 
-
-function is31Flavors(/*your code here*/){
+// taking 1 parameter - it's holding the place for an array
+function is31Flavors(array){
  /*your code here*/
+  if (array.length === 31){
+    return true;
+  }else{
+    return false;
+  }
+ //condition inside of here - if its true return true else return false -it should be exactly 31
 }
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -80,9 +89,13 @@ Use the addFlavor function below to do the following:
   For example: addFlavor(originalFlavors, "Rainbow Sherbert") should return the array ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla Burnt Almond"]
 */
 
-
-function addFlavor(/*your code here*/){
+//2 param array , a string (which is holding the place for the new flavor)
+function addFlavor(array, string){
  /*your code here*/
+ array.unshift(string);
+ return array
+ //unshift to add the new flavor to the beginning of the received array
+ //return the array
 }
 
 
@@ -96,9 +109,13 @@ Use the removeLastFlavor function below to do the following:
 
   For example: running removeLastFlavor(originalFlavors) would return ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla"]
 */
-
-function removeLastFlavor(/*your code here*/){
+//1 param which will be a placeholder for the array
+function removeLastFlavor(array){
  /*your code here*/
+ array.pop();
+ return array;
+ //use pop to remove the last item
+ //return the array
 }
 
 
@@ -113,9 +130,11 @@ Use the getFlavorByIndex function below to do the following:
 
   For example: running getFlavorByIndex(originalFlavors, 2) would return "Black Walnut", assuming Rainbow Sherbert has been added successfully
 */
-
-function getFlavorByIndex(/*your code here*/){
+//2 param array/ number(holding the place for an index)
+function getFlavorByIndex(array, number){
   /*your code here*/
+  return array[number];
+  //array[0]
 }
 
 
@@ -133,9 +152,20 @@ Use the removeFlavorByName function below to do the following:
 
   HINT: You can use .splice() for this
 */
-
-function removeFlavorByName(/*your code here*/){
+//2 param array and the string we want to remove
+function removeFlavorByName(array, string){
   /*your code here*/
+  for (let i = 0; i < array.length; i++){
+    if (array[i] === string){
+      array.splice(i, 1)
+    }
+  }
+  return array
+  //loop through the array and check every index for the exact match of the string, if it exists then remove it using splice
+
+  //.splce(start , and how many items to delete)
+
+  //outside of loop return array
 }
 
 
@@ -159,11 +189,22 @@ Use the filterByWord function below to do the following:
 
   DO NOT USE ADVANCED ARRAY METHODS (i.e. .filter) to solve this problem. 
 */
-
-function filterByWord(/*your code here*/){
+//2 param - array / string
+function filterByWord(array, string){
   /*your code here*/
+  //create a new array to push our results to
+  const filtered =[];
+  //loop thru the provided array and check every index
+  for(let i = 0; i < array.length; i++){
+    if (array[i].includes(string)){
+      filtered.push(array[i])
+    }
+  }
+  return filtered;
+  //if the index includes the string
+  //push it to the new array
 }
-
+console.log('task 7', filterByWord(originalFlavors, 'Chocolate'))
 
 /* 💪💪💪💪💪🧁🍦🍨 STRETCH 🍨🍦🍫💪💪💪💪💪*/ 
 
@@ -176,7 +217,7 @@ Use the getAverageWordLength function below to do the following:
 
   For example: getAverageWordLength(originalFlavors) should return a number between 0 and 3.     
 */
-
+//uncomment the data and move it above the function
 function getAverageWordLength(/*code here*/){
   /*code here*/
 }
